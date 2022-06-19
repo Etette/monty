@@ -28,12 +28,14 @@ stack_t *add_dnodeint(stack_t **stack_ptr, const int n)
         return (new_node);
 }
 
-int delete_dnodeint(stack_t **stack_ptr)
+int delete_dnodeint(stack_t **stack_ptr, unsigned int count)
 {
     stack_t *tmp;
     tmp = (*stack_ptr);
     if (*stack_ptr == NULL)
-        return (-1);
+    {
+        printf("L%d: can't pop an empty stack", count);
+    }
     /* Move the head pointer to the next node */
     (*stack_ptr) = tmp->next;
     free(tmp);
@@ -43,12 +45,36 @@ int delete_dnodeint(stack_t **stack_ptr)
 size_t print_dlistint(const stack_t *stack_ptr)
 {
     int i = 0;
-    while(stack_ptr){
-        printf("%d\n", stack_ptr->n);
-        stack_ptr = stack_ptr->next;
+    const stack_t *tmp;
+    tmp = stack_ptr;
+    while(tmp){
+        printf("%d\n", tmp->n);
+        tmp = tmp->next;
         i++;
     }
     return (i);
+}
+
+size_t print_dlisthead(const stack_t *stack_ptr, unsigned int count)
+{
+    if (stack_ptr == NULL)
+    {
+        printf("L%d: can't pint, stack empty\n", count);
+        exit(EXIT_FAILURE);
+    }
+    printf("%d\n", stack_ptr->n);
+    return (1);
+}
+
+size_t print_dlistheadch(const stack_t *stack_ptr, unsigned int count)
+{
+    if (stack_ptr == NULL)
+    {
+        printf("L%d: can't pint, stack empty\n", count);
+        exit(EXIT_FAILURE);
+    }
+    printf("%c\n", stack_ptr->n);
+    return (1);
 }
 
 void free_stack(stack_t *stack_ptr)

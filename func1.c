@@ -25,6 +25,19 @@ void opcode(stack_t **stack_ptr, char *line, unsigned int count)
 	};*/
 	instruction_t op[] = {
 		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", _add},
+		{"nop", nop},
+		{"sub", _sub},
+		{"div", _div},
+		{"mod", _mod},
+		{"mul", _mul},
+		{"#", nop},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 	int i;

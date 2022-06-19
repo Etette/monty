@@ -37,9 +37,23 @@ typedef struct instruction_s
 size_t getline(char **lineptr, size_t *n, FILE *stream);
 void pall(stack_t **stack_ptr, unsigned int count __attribute__((unused)));
 size_t print_dlistint(const stack_t *stack_ptr);
-int delete_dnodeint(stack_t **stack_ptr);
+int delete_dnodeint(stack_t **stack_ptr, unsigned int count);
 stack_t *add_dnodeint(stack_t **stack_ptr, const int n);
 void push(stack_t **stack_ptr, char *arg_data, unsigned int count);
 void opcode(stack_t **stack_ptr, char *line, unsigned int count);
 void free_stack(stack_t *stack_ptr);
+size_t print_dlisthead(const stack_t *stack_ptr, unsigned int count);
+void pint(stack_t **stack_ptr, unsigned int count __attribute__((unused)));
+void pop(stack_t **stack_ptr, unsigned int count);
+void swap(stack_t **stack_ptr, unsigned int count);
+void _add(stack_t **stack_ptr, unsigned int count);
+void _sub(stack_t **stack_ptr, unsigned int count);
+void _div(stack_t **stack_ptr, unsigned int count);
+void _mod(stack_t **stack_ptr, unsigned int count);
+void _mul(stack_t **stack_ptr, unsigned int count);
+void nop(stack_t **stack_ptr, unsigned int count);
+void rotl(stack_t **stack_ptr, unsigned int count);
+void pchar(stack_t **stack_ptr, unsigned int count);
+void pstr(stack_t **stack_ptr, unsigned int count);
+size_t print_dlistheadch(const stack_t *stack_ptr, unsigned int count);
 #endif

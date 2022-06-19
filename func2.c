@@ -28,11 +28,50 @@ void push(stack_t **stack_ptr, char *arg_data, unsigned int count)
 }
 
 /**
- * pall - prints all the values on the stack, starting from the top of the stack.
+ * pall - prints top of stack.
  * @stack_ptr: pointer to dlinkedlist
  * @count: line number
  */
-void pall(stack_t **stack_ptr, unsigned int count __attribute__((unused)))
+void pop(stack_t **stack_ptr, unsigned int count)
 {
-	print_dlistint(*stack_ptr);
+	if (stack_ptr != NULL)
+		delete_dnodeint(stack_ptr, count);
+	else
+	{
+		printf("L%d: can't pop an empty stack", count);
+		exit (EXIT_FAILURE);
+	}
 }
+
+/**
+ * pall - prints top of stack.
+ * @stack_ptr: pointer to dlinkedlist
+ * @count: line number
+ */
+void swap(stack_t **stack_ptr, unsigned int count)
+{
+	int buff;
+
+	if ((*stack_ptr) == NULL || (*stack_ptr)->next == NULL)
+	{
+		printf("L%d: can't swap, stack too short", count);
+		exit(EXIT_FAILURE);
+	}
+	buff = (*stack_ptr)->n;
+	(*stack_ptr)->n = (*stack_ptr)->next->n;
+	(*stack_ptr)->next->n = buff;
+}
+
+/**
+ * pall - prints top of stack.
+ * @stack_ptr: pointer to dlinkedlist
+ * @count: line number
+ */
+void nop(stack_t **stack_ptr, unsigned int count)
+{
+	(void)stack_ptr;
+	(void)count;
+}
+
+
+
