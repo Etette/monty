@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
                 exit(EXIT_FAILURE);
         }
 
-        while ((read = getline(&line, &len, fp)) != -1)
+        while ((read = _getline(&line, &len, fp)) != -1)
         {
                 if (*line == '\n')
 		{
