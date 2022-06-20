@@ -34,7 +34,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-size_t getline(char **lineptr, size_t *n, FILE *stream);
+size_t _getline(char **lineptr, size_t *n, FILE *stream);
 void pall(stack_t **stack_ptr, unsigned int count __attribute__((unused)));
 size_t print_dlistint(const stack_t *stack_ptr);
 int delete_dnodeint(stack_t **stack_ptr, unsigned int count);
