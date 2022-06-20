@@ -9,7 +9,7 @@
  * Return: returns the number of char entered
  *
  * */
-size_t getline(char **lineptr, size_t *n, FILE *stream) {
+size_t _getline(char **lineptr, size_t *n, FILE *stream) {
     char *bufptr = NULL;
     char *p = bufptr;
     size_t size;
